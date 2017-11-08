@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.reds.turk_system.Registration"
+    tools:showIn="@layout/activity_registration">
+
+    <TextView
+        android:id="@+id/UserName_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:text="@string/Username"
+        android:visibility="visible"
+        android:layout_above="@+id/email_in"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="11dp" />
+
+
+    <EditText
+        android:id="@+id/user_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:singleLine="true"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="32dp"
+        android:layout_above="@+id/email_in"
+        android:layout_alignLeft="@+id/email_in"
+        android:layout_alignStart="@+id/email_in" />
+
+    <TextView
+        android:id="@+id/Email_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:text="@string/Email"
+        android:visibility="visible"
+        android:layout_alignBaseline="@+id/email_in"
+        android:layout_alignBottom="@+id/email_in"
+        android:layout_alignLeft="@+id/pass_"
+        android:layout_alignStart="@+id/pass_"
+        android:layout_marginStart="12dp" />
+
+
+    <EditText
+        android:id="@+id/email_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        tools:layout_editor_absoluteX="85dp"
+        android:layout_above="@+id/pass_in"
+        android:layout_alignLeft="@+id/pass_in"
+        android:layout_alignStart="@+id/pass_in"
+        android:layout_marginBottom="11dp" />
+
+
+    <TextView
+        android:id="@+id/pass_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Password"
+        android:visibility="visible"
+        android:layout_alignBaseline="@+id/pass_in"
+        android:layout_alignBottom="@+id/pass_in"
+        android:layout_alignLeft="@+id/pass2_"
+        android:layout_alignStart="@+id/pass2_" />
+
+
+    <EditText
+        android:id="@+id/pass_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        tools:layout_editor_absoluteX="85dp"
+        android:layout_above="@+id/pass2_in"
+        android:layout_alignLeft="@+id/pass2_in"
+        android:layout_alignStart="@+id/pass2_in"
+        android:layout_marginBottom="11dp" />
+
+
+    <TextView
+        android:id="@+id/pass2_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Retype"
+        android:visibility="visible"
+        tools:layout_editor_absoluteY="196dp"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/UserName_"
+        android:layout_alignEnd="@+id/UserName_" />
+
+    <EditText
+        android:id="@+id/pass2_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        tools:layout_editor_absoluteX="85dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/UserName_"
+        android:layout_toEndOf="@+id/UserName_"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp" />
+
+
+    <Button
+        android:id="@+id/Register_Acc"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Register_"
+        android:layout_marginBottom="125dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

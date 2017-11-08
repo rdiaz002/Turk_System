@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Authorize"
+        android:enabled="true"
+        android:title="Authorize">
+
+    </item>
+    <item
+        android:id="@+id/Warnings"
+        android:enabled="true"
+        android:title="Warning Request">
+
+    </item>
+    <item
+        android:id="@+id/Quit"
+        android:enabled="true"
+        android:title="Quit Request"></item>
+    <item
+        android:id="@+id/Payment"
+        android:enabled="true"
+        android:title="Payment Requests">
+
+    </item>
+    <item
+        android:id="@+id/BlackList"
+        android:enabled="true"
+        android:title="Blacklist">
+    </item>
+
+</menu>

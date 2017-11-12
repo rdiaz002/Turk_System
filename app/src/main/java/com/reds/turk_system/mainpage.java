@@ -8,28 +8,32 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 public class mainpage extends AppCompatActivity {
     private BottomNavigationView nav;
     private Fragment main_frag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
-        main_frag=new profile();
+        main_frag = new profile();
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_view,main_frag)
+                .replace(R.id.container_view, main_frag)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
 
 
-        nav = (BottomNavigationView)findViewById(R.id.nav);
+        nav = (BottomNavigationView) findViewById(R.id.nav);
+        nav.inflateMenu(R.menu.menu1);
+
         nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (nav.getMenu().toString()=="")
-                switch(item.getItemId()){
+
+                switch (item.getItemId()) {
                     case R.id.profile:
                         main_frag = new profile();
                         break;
@@ -45,10 +49,29 @@ public class mainpage extends AppCompatActivity {
                     case R.id.Settings:
                         main_frag = new Settings();
                         break;
+                    case R.id.Warnings:
+                        main_frag = new Warnings();
+                        break;
+                    case R.id.Authorize:
+                        main_frag = new Authorize();
+                        break;
+                    case R.id.Quit:
+                        main_frag= new Quit();
+                        break;
+                    case R.id.Payment:
+                        main_frag = new Payment();
+                        break;
+                    case R.id.BlackList:
+                        main_frag = new Blacklist();
+                        break;
+                    default:
+
+                        main_frag = new profile();
+                        break;
 
                 }
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container_view,main_frag)
+                        .replace(R.id.container_view, main_frag)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit();
                 return true;

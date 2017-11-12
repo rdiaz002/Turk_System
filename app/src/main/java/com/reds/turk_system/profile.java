@@ -1,5 +1,6 @@
 package com.reds.turk_system;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -28,23 +29,26 @@ public class profile extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        name = (TextView) getView().findViewById(R.id.Name);
-        bio = (TextView) getView().findViewById(R.id.Bio_Desc);
-        rating = (TextView) getView().findViewById(R.id.Rating);
-        interest = (TextView) getView().findViewById(R.id.interests);
-        proj_list = (ListView)getView().findViewById(R.id.proj_list);
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        name = (TextView) root.findViewById(R.id.Name);
+        bio = (TextView) root.findViewById(R.id.Bio_Desc);
+        rating = (TextView) root.findViewById(R.id.Rating);
+        interest = (TextView) root.findViewById(R.id.interests);
+        proj_list = (ListView)root.findViewById(R.id.proj_list);
+
+        name.setText(getActivity().getIntent().getStringArrayListExtra("data").get(2));
 
         if (data == null) {
-            gatherInformation();
+            //gatherInformation();
         } else {
-            postData();
+            //postData();
         }
 
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return root;
     }
 
     public void gatherInformation() {
-        AsyncTask info = new AsyncTask() {
+        @SuppressLint("StaticFieldLeak") AsyncTask info = new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] objects) {
                 try {
@@ -58,7 +62,7 @@ public class profile extends Fragment {
                     conn.setDoInput(true);
                     InputStream stream = conn.getInputStream();
                     data = convertStreamToString(stream);
-                    data = data.toString().replace("\n", "");
+                    data = data.replace("\n", "");
                 } catch (Exception e) {
                     Log.d("tag", "Exception: " + e.getMessage());
                     data = null;
@@ -83,7 +87,7 @@ public class profile extends Fragment {
         generateProects();
     }
     public void generateProects(){
-        AsyncTask info = new AsyncTask() {
+        @SuppressLint("StaticFieldLeak") AsyncTask info = new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] objects) {
                 try {
@@ -97,7 +101,7 @@ public class profile extends Fragment {
                     conn.setDoInput(true);
                     InputStream stream = conn.getInputStream();
                     data = convertStreamToString(stream);
-                    data = data.toString().replace("\n", "");
+                    data = data.replace("\n", "");
                 } catch (Exception e) {
                     Log.d("tag", "Exception: " + e.getMessage());
                     data = null;
@@ -120,7 +124,7 @@ public class profile extends Fragment {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 
-        String line = null;
+        String line;
         try {
             while ((line = reader.readLine()) != null) {
                 sb.append(line).append('\n');

@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 public class Registration extends AppCompatActivity {
     private EditText un,em,ps,ps2;
-    private TextView unt,emt,pst,ps2t;
     private Button reg;
     public Registration(){
 
@@ -25,10 +24,6 @@ public class Registration extends AppCompatActivity {
         em = (EditText) findViewById(R.id.email_in);
         ps = (EditText) findViewById(R.id.pass_in);
         ps2 = (EditText) findViewById(R.id.pass2_in);
-        unt =(TextView) findViewById(R.id.UserName_);
-        emt = (TextView) findViewById(R.id.Email_);
-        pst = (TextView) findViewById(R.id.pass_);
-        ps2t = (TextView) findViewById(R.id.pass2_);
 
         reg = (Button) findViewById(R.id.Register_Acc);
         reg.setOnClickListener(new View.OnClickListener() {
